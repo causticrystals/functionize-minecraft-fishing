@@ -25,37 +25,28 @@ function fishBtnClicked() {
 
   // Catch fish based on character
   if (character === 'steve') {
-    // STEVE: Cod 70%, Salmon 20%, Tropical 5%, Puffer 5%
-    let randNum = Math.random();
-    if (randNum < 0.7) {
-      numCod++;
-      numCodSpan.innerHTML = numCod;
-      resultImg.src = 'img/Raw-Cod.png';
-    } else if (randNum < 0.9) {
-      numSalmon++;
-      numSalmonSpan.innerHTML = numSalmon;
-      resultImg.src = 'img/Raw-Salmon.png';
-    } else if (randNum < 0.95) {
-      numTropical++;
-      numTropicalSpan.innerHTML = numTropical;
-      resultImg.src = 'img/Tropical-Fish.png';
-    } else {
-      numPuffer++;
-      numPufferSpan.innerHTML = numPuffer;
-      resultImg.src = 'img/Pufferfish.png';
-    }
+    // STEVE: Cod 70% (0.7), Salmon 20% (0.9), Tropical 5% (0.95), Puffer 5%
+    catchFish("0.7", "0.9", "0.95");
   } else if (character === 'alex') {
-    // ALEX: Cod 10%, Salmon 10%, Tropical 30%, Puffer 50%
-    let randNum = Math.random();
-    if (randNum < 0.1) {
+    // ALEX: Cod 10% (0.1), Salmon 10% (0.2), Tropical 30% (0.5), Puffer 50%
+    catchFish("0.1", "0.2", "0.5");
+  } else if (character === "villager") {
+    // VILLAGER: Cod 25% (0.25), Salmon 25% (0.5), Tropical 25% (0.75), Puffer 25%
+    catchFish("0.25", "0.5", "0.75");
+  }
+}
+
+function catchFish(codNum, salmonNum, tropicalNum) {
+  let randNum = Math.random();
+    if (randNum < codNum) {
       numCod++;
       numCodSpan.innerHTML = numCod;
       resultImg.src = 'img/Raw-Cod.png';
-    } else if (randNum < 0.2) {
+    } else if (randNum < salmonNum) {
       numSalmon++;
       numSalmonSpan.innerHTML = numSalmon;
       resultImg.src = 'img/Raw-Salmon.png';
-    } else if (randNum < 0.5) {
+    } else if (randNum < tropicalNum) {
       numTropical++;
       numTropicalSpan.innerHTML = numTropical;
       resultImg.src = 'img/Tropical-Fish.png';
@@ -64,5 +55,4 @@ function fishBtnClicked() {
       numPufferSpan.innerHTML = numPuffer;
       resultImg.src = 'img/Pufferfish.png';
     }
-  }
 }
